@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "homework-2"
+version = "0.1.0"
+description = "Creating poetry"
+authors = ["Ralitnyi <127546804+Ralitnyi@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{include = "homework_2"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+email-validator = "^2.0.0.post2"
+phonenumbers = "^8.13.17"
+tabulate = "^0.9.0"
+colorama = "^0.4.6"
+faker = "^19.2.0"
+prompt-toolkit = "^3.0.39"
+openai = "^0.27.8"
+prettytable = "^3.8.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
