@@ -1,6 +1,7 @@
 from connect_db import session
 from sqlalchemy import func, desc
 from models import Student, Grade, Group, Teacher, Subject
+from datetime import date
 
 
 def select_1():
@@ -71,7 +72,31 @@ def select_10():
         .group_by(Subject.name, Student.name)\
         .all()
 
+def select_11():
+    student_name = 'Meagan Hodges'
+    teacher_name = 'Chelsea Sutton'
+    return session.query(func.round(func.avg(Grade.grade)), Teacher.name, Student.name)\
+        .select_from(Grade)\
+        .join(Subject)\
+        .join(Teacher)\
+        .join(Student)\
+        .group_by(Teacher, Student)\
+        .filter(Teacher.name == teacher_name, Student.name == student_name)\
+        .all()
+
+def select_12():
+    subject_name = 'Math'
+    group_id = 1
+    yesterday = date(date.today().year, date.today().month - 1, date.today().day)
+    return session.query(Grade.date, Grade.grade,)\
+        .select_from(Grade)\
+        .join(Student)\
+        .join(Group)\
+        .join(Subject)\
+        .filter(Group.id == group_id, Subject.name == subject_name, Grade.date >= yesterday)\
+        .all()
+
 
 if __name__ == '__main__':
-    for res in select_3():
+    for res in select_12():
         print(res)

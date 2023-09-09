@@ -18,7 +18,8 @@ if __name__ == '__main__':
     session.commit()
 
     # Створення предметів та призначення їх викладачам
-    subjects = [Subject(name=fake.word(), teacher=teachers[i % 3]) for i in range(5, 13)]
+    subjects_names = ['Math', 'English', 'Swimming', 'Geography', 'Music', 'Art', 'Science', 'History']
+    subjects = [Subject(name=subjects_names[i % 8], teacher=teachers[i % 3]) for i in range(1, 9)]
     session.add_all(subjects)
     session.commit()
 
@@ -26,7 +27,12 @@ if __name__ == '__main__':
     students = [Student(name=fake.name(), group_id=(i//10) + 1) for i in range(0, 30)]
     for student in students:
         student.student_grade = [
-            Grade(student=student, subject=subjects[i % 8], grade=fake.random_int(min=1, max=100))
+            Grade(
+                student=student,\
+                subject=subjects[i % 8],\
+                grade=fake.random_int(min=1, max=100),\
+                date=fake.date_between(start_date='-30d', end_date='now')
+                )
             for i in range(20)
         ]
 

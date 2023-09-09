@@ -1,6 +1,7 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, Date,ForeignKey
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
+from datetime import datetime
 
 
 
@@ -41,7 +42,9 @@ class Grade(Base):
     student = relationship("Student", back_populates="student_grade")
     grade = Column(Integer)
     subject_id = Column(Integer, ForeignKey('subjects.id'))
+    date = Column(Date, default=datetime.now())
     subject = relationship("Subject", back_populates="subject_grade")
+
 
 
 
