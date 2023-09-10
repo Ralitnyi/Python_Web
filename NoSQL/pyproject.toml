@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "nosql"
+version = "0.1.0"
+description = ""
+authors = ["Ralitnyi <127546804+Ralitnyi@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+pymongo = "^4.5.0"
+mongoengine = "^0.27.0"
+pika = "^1.3.2"
+faker = "^19.6.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.9.0"
+isort = "^5.12.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
