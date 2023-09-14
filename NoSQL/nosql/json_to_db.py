@@ -6,14 +6,14 @@ from models import Author, Quote
 
 
 def fill_author(json_file_name):
-    with open(json_file_name, "r") as file:
+    with open(json_file_name, "r", encoding='utf-8') as file:
         data = json.load(file)
         for author in data:
             Author(**author).save()
 
 
 def fill_quotes(json_file_name):
-    with open(json_file_name, "r") as file:
+    with open(json_file_name, "r", encoding='utf-8') as file:
         data = json.load(file)
         for quote_data in data:
             author_name = quote_data.get("author")
