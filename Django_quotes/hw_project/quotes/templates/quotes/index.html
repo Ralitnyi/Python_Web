@@ -32,15 +32,6 @@
 
     {% endfor %}
 
-    <div class="col-md-4 tags-box">
-        <h2>Top ten tags</h2>
-        {% for tag in top_tags %}
-        <span class="tag">
-            <a href="{% url 'quotes:for_tag' tag.id %}">{{ tag.name }}</a>
-        </span>
-        {% endfor %}
-    </div>
-
     <nav>
         <ul class="pager">
                 
@@ -63,6 +54,15 @@
             
         </ul>
     </nav>
+    
 </div>
     
+<div class="col-md-2 tags-box">
+    <h2 id="top-ten-tags">Top ten tags</h2>
+    {% for tag in top_tags %}
+    <ul class="tag-tags-box">
+        <li><a href="{% url 'quotes:for_tag' tag.id %}">{{ tag.name }}</a></li>
+    </ul>
+    {% endfor %}
+</div>
 {% endblock %}

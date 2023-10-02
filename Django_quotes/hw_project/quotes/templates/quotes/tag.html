@@ -1,0 +1,33 @@
+{% extends 'quotes/base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'quotes:add_tag' %}">
+    <div>
+        <h2 class="to-add">To add tag</h2>
+        
+        {% csrf_token %}
+        <div class="input">
+            <label> Tag:
+                {{ form.name }}
+            </label>
+            <span>{{ form.errors.name }}</span>
+        </div>
+
+        <div class="grid">
+            <button class="button-sub-res" type="submit">Submit</button>
+            <button class="button-sub-res" type="reset" class="secondary">Reset</button>
+        </div>
+
+        <div class="tag-container">
+            {% for tag in tags %}
+            <div class="tag-item">
+                <p class="tag-text"> {{ tag.name }} </p>
+                <a href="{% url 'quotes:delete_tag' tag.id %}" role="button" class="button-tag"> Delete {{ tag.name }} </a>
+            </div>
+            {% endfor %}
+        <div>
+
+    </div>
+
+{% endblock %}

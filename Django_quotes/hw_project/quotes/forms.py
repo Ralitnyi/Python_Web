@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import CharField, ModelForm, TextInput
 
-from .models import Author, Quote
+from .models import Author, Quote, Tag
 
 
 class AuthorForm(ModelForm):
@@ -16,7 +16,7 @@ class AuthorForm(ModelForm):
         widget=forms.DateInput(attrs={"type": "date"}),
     )
     born_location = CharField(
-        min_length=5, max_length=150, required=True, widget=TextInput()
+        min_length=4, max_length=150, required=True, widget=TextInput()
     )
 
     class Meta:
@@ -35,3 +35,7 @@ class QuoteForm(ModelForm):
 
 class TagForm(ModelForm):
     name = CharField(min_length=3, max_length=50, required=True, widget=TextInput())
+    
+    class Meta:
+        model = Tag
+        fields = ["name"]

@@ -24,6 +24,7 @@
                 <p>
                     <a href="{% url 'quotes:add_quote' %}" class="btn btn-info" role="button">Add Quote</a>
                     <a href="{% url 'quotes:add_author' %}" class="btn btn-info" role="button">Add Author</a>
+                    <a href="{% url 'quotes:add_tag' %}" class="btn btn-info" role="button">Add Tag</a>
                     <p class="badge bg-info text-wrap fs-6" style="width: 6rem;">Welcome <b>{{ user.username }}!</b></p>
                     <br>
                     <a href="{% url 'users:logout' %}" class="btn btn-info">Logout</a>
