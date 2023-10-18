@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, func
+from sqlalchemy import Column, ForeignKey, Integer, String, func
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.sql.sqltypes import DateTime
 from sqlalchemy.orm import relationship
+from sqlalchemy.sql.sqltypes import DateTime
 
 Base = declarative_base()
 
@@ -15,8 +15,11 @@ class Contact(Base):
     phone = Column(String(50), unique=True)
     birthday = Column(DateTime)
     description = Column(String(150), nullable=True)
-    user_id = Column('users_id', ForeignKey('users.id', ondelete='CASCADE'), default=None)
-    user = relationship('User', backref='contacts')
+    user_id = Column(
+        "users_id", ForeignKey("users.id", ondelete="CASCADE"), default=None
+    )
+    user = relationship("User", backref="contacts")
+
 
 class User(Base):
     __tablename__ = "users"
@@ -24,6 +27,6 @@ class User(Base):
     username = Column(String(50))
     email = Column(String(250), nullable=False, unique=True)
     password = Column(String(255), nullable=False)
-    created_at = Column('crated_at', DateTime, default=func.now())
+    created_at = Column("crated_at", DateTime, default=func.now())
     avatar = Column(String(255), nullable=True)
     refresh_token = Column(String(255), nullable=True)

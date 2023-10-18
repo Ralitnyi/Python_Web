@@ -1,7 +1,7 @@
 from datetime import datetime, timedelta
 from typing import List
 
-from sqlalchemy import or_, and_
+from sqlalchemy import and_, or_
 from sqlalchemy.orm import Session
 
 from src.database.models import Contact, User
@@ -9,7 +9,13 @@ from src.schemas import ContactBase, ContactResponse
 
 
 async def get_contacts(skip: int, limit: int, user: User, db: Session) -> List[Contact]:
-    contacts = db.query(Contact).filter(Contact.user_id == user.id).offset(skip).limit(limit).all()
+    contacts = (
+        db.query(Contact)
+        .filter(Contact.user_id == user.id)
+        .offset(skip)
+        .limit(limit)
+        .all()
+    )
     return contacts
 
 
@@ -27,7 +33,9 @@ async def create_contact(body: ContactBase, user: User, db: Session) -> Contact:
     return contact
 
 
-async def update_contact(id_: int, body: ContactBase, user: User, db: Session) -> Contact:
+async def update_contact(
+    id_: int, body: ContactBase, user: User, db: Session
+) -> Contact:
     contact = db.query(Contact).filter_by(id=id_).first()
     if contact:
         contact.name = body.name
