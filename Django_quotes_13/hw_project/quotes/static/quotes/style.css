@@ -1,0 +1,182 @@
+.quote {
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #333333;
+}
+
+.quote span.text {
+    display: block;
+    margin-bottom: 5px;
+    font-size: large;
+    font-style: italic;
+}
+
+.quote .tags {
+    margin-top: 10px;
+}
+
+.tag {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: small;
+    background-color: #7CA3E6;
+}
+.tag-tags-box {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: #eeeff2;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+
+.pager {
+    font-family: "Raleway","Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-left: 0;
+    margin: 22px 0;
+    list-style: none;
+    text-align: center;
+}
+
+.pager li>a, .pager li>span {
+    display: inline-block;
+    padding: 5px 14px;
+    background-color: #ffffff;
+    border: 1px solid #dddddd;
+    border-radius: 15px;
+}
+
+.pager .next>a, .pager .next>span {
+    float: right;
+}
+
+.pager .previous>a, .pager .previous>span {
+    float: left;
+}
+
+.pager li {
+    display: inline;
+}
+
+.disabled {
+    color: #333333;
+    cursor: not-allowed;
+}
+
+.tags-box {
+    text-align: right; /* Вирівнювання тексту з правого боку */
+    padding: 20px; /* Підставте бажаний відступ від країв боксу */
+    background-color: #ffffff; /* Фоновий колір боксу */
+    border: 1px solid #000000; /* Обрамлення боксу */
+    border-radius: 5px; /* Закруглені кути */
+    box-shadow: 2px 2px 3px #000000; /* Тінь боксу */
+}
+
+#top-ten-tags {
+    color: dodgerblue;
+}
+
+.tag-container {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-height: 300px; /* встановіть максимальну висоту, при якій буде відображатися прокрутка */
+    overflow-y: auto; /* додаємо прокрутку вниз, якщо блок перевищує максимальну висоту */
+    padding: 20px;
+}
+
+.tag-item {
+    width: 15%; /* ширина одного стовпця зі зазором між ними */
+    padding: 10px;
+    border: 1px solid #000000;
+    background-color: #25cff2;
+    text-align: center;
+    border-radius: 25px;
+    color: white;
+    font-size: medium;
+}
+
+.tag-item:hover {
+    box-shadow: 0 0 30px #25cff2;
+}
+
+.tag-container::-webkit-scrollbar {
+    width: 24px; /* Ширина повзунка прокрутки */
+}
+
+.tag-container::-webkit-scrollbar-thumb {
+    background-color: #25cff2; /* Колір повзунка */
+    border-radius: 10px; /* Радіус закруглення країв повзунка */
+}
+
+.tag-text {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.button-tag {
+    font-size: 24px;
+    color: #000000;
+}
+
+.button-sub-res {
+    background-color: #25cff2;
+    border-radius: 15px;
+    margin: 10px 0 10px 0;
+    font-size: 24px;
+    padding: 5px;
+}
+
+.input input[type="text"] {
+    font-size: 24px; /* Розмір шрифту */
+    color: #000000; /* Колір тексту */
+    padding: 5px; /* Відступи всередині поля вводу */
+    border: 1px solid #25cff2; /* Товщина та колір межі поля вводу */
+    border-radius: 10px; /* Закругленість кутів поля вводу */
+    /* margin-bottom: 15px; Відступ знизу від інших елементів */
+}
+
+.input input[type="text"]:focus {
+    outline: none; /* Позбавлення фокусування від рамки при натисканні на поле вводу */
+    border-color: #66afe9; /* Зміна кольору межі при фокусуванні */
+    box-shadow: 0 0 15px #ffffff; /* Тінь при фокусуванні на полі вводу */
+    margin: 10px;
+}
+
+.input {
+    background-color: #25cff2;
+    margin-right: 900px;
+    font-size: 24px;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+}
+
+.input:hover {
+    box-shadow: 0 0 10px #25cff2;
+}
+
+.to-add {
+    font-size: 38px;
+    margin: 10px 1000px 10px 0;
+    border-radius: 20px;
+}
+
+.to-add:hover {
+    background-color: #25cff2;
+    box-shadow: 0 0 30px #25cff2;
+}
+
+.container {
+    box-shadow: 0 0 50px #25cff2;
+    border-radius: 15px;
+}
+
+.row {
+    background-color: #aae6f1;
+}

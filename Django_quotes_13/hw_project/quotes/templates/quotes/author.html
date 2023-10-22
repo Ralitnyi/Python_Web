@@ -1,0 +1,51 @@
+{% extends 'quotes/base.html' %}
+
+{% block content %}
+
+<form method="POST" action="{% url 'quotes:add_author' %}">
+    <div>
+        <h2 class="to-add">To add author</h2>
+        
+        {% csrf_token %}
+        <div class="input">
+            <label> Author name:
+                {{ form.fullname }}
+            </label>
+            <span>{{ form.errors.fullname }}</span>
+        </div>
+        <div class="input">
+            <label> Author description:
+                {{ form.description }}
+            </label>
+            <span>{{ form.errors.description }}</span>
+        </div>
+        <div class="input">
+            <label> Author born date:
+                {{ form.born_date }}
+            </label>
+            <span>{{ form.errors.born_date }}</span>
+        </div>
+        <div class="input">
+            <label> Author born location:
+                {{ form.born_location }}
+            </label>
+            <span>{{ form.errors.born_location }}</span>
+        </div>
+        
+        <div class="grid">
+            <button class="button-sub-res" type="submit">Submit</button>
+            <button class="button-sub-res" type="reset" class="secondary">Reset</button>
+        </div>
+        <div class="tag-container">
+            {% for author in authors %}
+            <div class="tag-item">
+                <p class="tag-text"> {{ author.fullname }} </p>
+                <a href="{% url 'quotes:delete_author' author.id %}" role="button" class="button-tag"> Delete {{author.name}} </a>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</form>
+
+{% endblock %}
