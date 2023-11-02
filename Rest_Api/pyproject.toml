@@ -24,11 +24,20 @@ fastapi-limiter = "^0.1.5"
 cloudinary = "^1.36.0"
 
 
+
 [tool.poetry.group.dev.dependencies]
 black = "^23.9.1"
 isort = "^5.12.0"
 sphinx = "^7.2.6"
 
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.3"
+httpx = "^0.25.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

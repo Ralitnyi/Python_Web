@@ -1,5 +1,5 @@
 from pydantic_settings import BaseSettings
-
+from pydantic import ConfigDict
 
 class Settings(BaseSettings):
     sqlalchemy_database_url: str
@@ -16,7 +16,7 @@ class Settings(BaseSettings):
     api_key: str
     api_secret: str
 
-    class Config:
+    class ConfigDict:
         env_file = ".env"
         env_file_encoding = "utf-8"
 
